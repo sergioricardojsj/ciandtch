@@ -1,0 +1,16 @@
+version: '3'
+services:
+  maven:
+    build:
+      dockerfile: ./maven.dockerfile
+      context: .
+    image: ciandt/automation
+    container_name: selenium-cucumber-automation
+    networks:
+      - test-network
+    depends_on:
+      - allure
+
+networks:
+  test-network:
+    driver: bridge
